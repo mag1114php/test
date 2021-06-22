@@ -29,6 +29,8 @@ export class ImagesComponent implements OnInit {
     this.galleryService.getImages().subscribe((data) => {
       this.route.params.subscribe(routeParams => {
         const orderPage = routeParams.page;
+        this.countBtn = Math.round(data.length / this.countItemsForPage)
+        const countImages: Number = data.length
         this.orderPage = this.validateParams(orderPage)
         if (orderPage === 1) {
           this.images = data.slice(0, this.countItemsForPage)
@@ -37,20 +39,25 @@ export class ImagesComponent implements OnInit {
           this.images = data.slice(orderPage * this.countItemsForPage - this.countItemsForPage, this.countItemsForPage * orderPage)
         }
       })
-      this.countBtn = Math.round(data.length / this.countItemsForPage)
-      const countImages: Number = data.length
+
+
 
 
     })
 
   }
   validateParams(orderPage: any): any {
+
     let checkValue = parseInt(orderPage)
     if (isNaN(checkValue)) {
       this.router.navigate(['/errors'])
     }
     else {
+      if (checkValue >Number(this.countBtn)) {
+        this.router.navigate(['/errors'])
+      }
       return orderPage
+
     }
   }
 
