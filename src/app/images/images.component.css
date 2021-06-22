@@ -1,0 +1,16 @@
+.wrapper-gallery img{
+    width: 200px;
+    height: 200px;
+    
+}
+.wrapper-gallery span{
+    display: block;
+}
+.wrapper-gallery a{
+    display: block;
+    width: 110px;
+    margin:auto
+}
+.wrapper-gallery {
+    width:85%;
+}

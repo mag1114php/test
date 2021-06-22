@@ -1,0 +1,11 @@
+<div class="row text-center justify-content-center m-auto  wrapper-gallery ">
+    <h1>Галерея картинок</h1> 
+    <app-messages [errors]="messageService.messagesMainPage" > </app-messages>
+       <div *ngFor="let image of images" class="col-md-3 border  rounded  p-1">
+            <span>{{image.author}}</span>
+            <img src='{{image.download_url}}' class="img-thumbnail ">
+             <a class="btn btn-dark align-top" routerLink="/page/{{orderPage}}/item/{{image.id}}" >Подробнее</a>
+            
+       </div>  
+       <app-pagination ></app-pagination>
+</div>

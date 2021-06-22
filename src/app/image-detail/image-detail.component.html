@@ -1,0 +1,19 @@
+<app-messages [errors]="messageService.messagesDetailPage" *ngIf="messageService.messagesDetailPage.length"> </app-messages>
+<div *ngIf="image" class="container detail-info "> 
+    <h1 class="text-center">Детальная информация</h1>
+    
+    <div class="row">
+        <img src={{image.download_url}} class="img-fluid float-left" >
+    
+     
+        <h4>Описание</h4>
+         <span>Автор:{{image.author}}</span>
+         <span>Ширина:{{image.width}}</span>
+         <span>Высота:{{image.height}}</span>
+         <span>Url:{{image.url}}</span>
+         <span>download_url:{{image.download_url}}</span>
+      
+   </div>
+   <a class="btn btn-dark back" (click)="goBack()">Назад</a>
+     
+</div>
